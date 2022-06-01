@@ -34,8 +34,7 @@ mantenimiento = False
 
 app = Flask(__name__)
 
-print("Bot de rogas activo.")
-#requests.get(URL + "sendMessage?text=Asistente del GCEN activado&chat_id="+str(David))
+print("Bot Activo")
 
 @app.route('/', methods=['POST'])
 def main():
