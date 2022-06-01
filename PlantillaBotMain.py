@@ -4,20 +4,15 @@ import json
 import os
 from flask import Flask, request# Add your telegram token as environment variable
 #Importar mis librerías de variables
-from Datos import boton_inline, teclado, general_data
+from data import inline_button, keyboard, general_data
 #Importar módulos
-from Eventos import message, inline_query, edited_message, chat_join_request, callback_query, channel_post, chat_join_request, chat_member, chosen_inline_result, edited_channel_post, my_chat_member, poll, poll_answer, pre_checkout_query, shipping_query
+from events import message, inline_query, edited_message, chat_join_request, callback_query, channel_post, chat_join_request, chat_member, chosen_inline_result, edited_channel_post, my_chat_member, poll, poll_answer, pre_checkout_query, shipping_query
 
 URL = f'https://api.telegram.org/bot{os.environ["TOKEN"]}/' #Sustituit por TOKEN después
 
 def obtener_tipochat (idchat):
-    #respuesta = requests.get(URL + "getChat?chat_id=" + str(idchat))
-    #mensajes_js = respuesta.content.decode("utf8")
-    #chat = json.loads(mensajes_js)
-    #tipochat = chat["result"]["type"]'''
     #Tipos disponibles según la API de Telegram
     #private, group, supergroup or channel
-    
     json_data = {
             "chat_id": idchat
     }
@@ -89,7 +84,7 @@ def main():
         inline_query.query(i)
         
     elif "chosen_inline_query" in respuesta:
-        resultado = respuesta["chosen_inline_query"]
+        i = respuesta["chosen_inline_query"]
         
     elif "callback_query" in respuesta:
         i = respuesta["callback_query"]
