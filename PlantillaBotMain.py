@@ -8,7 +8,6 @@ from data import inline_button, keyboard, general_data
 #Importar módulos
 from events import message, inline_query, edited_message, chat_join_request, callback_query, channel_post, chat_join_request, chat_member, chosen_inline_result, edited_channel_post, my_chat_member, poll, poll_answer, pre_checkout_query, shipping_query
 
-URL = f'https://api.telegram.org/bot{os.environ["TOKEN"]}/' #Sustituit por TOKEN después
 
 def obtener_tipochat (idchat):
     #Tipos disponibles según la API de Telegram
@@ -16,7 +15,7 @@ def obtener_tipochat (idchat):
     json_data = {
             "chat_id": idchat
     }
-    message_url = URL + 'getChat'
+    message_url = general_data.URL + 'getChat'
     respuesta = requests.post(message_url, json_data)
     mensajes_js = respuesta.content.decode("utf8")
     chat = json.loads(mensajes_js)
