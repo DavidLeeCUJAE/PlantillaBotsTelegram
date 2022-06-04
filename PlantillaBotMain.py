@@ -1,3 +1,5 @@
+#Plantilla para programar bots
+
 #Importar librerias
 import requests  
 import json
