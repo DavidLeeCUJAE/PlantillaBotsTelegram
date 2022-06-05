@@ -29,5 +29,5 @@ def document(i):
 
 def photo(i):
     id_mensaje, id_chat, nombre = get(i)
-    photo1 = i['photo'](1)
-    print('Una foto en el canal ' + nombre + ' con id: ' + photo1['file_id'])
+    photo = i['photo']
+    print('Una foto en el canal ' + nombre + ' con id: ' + photo[0]['file_id'])
